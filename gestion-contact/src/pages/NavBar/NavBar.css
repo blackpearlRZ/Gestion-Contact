@@ -12,9 +12,7 @@ header{
     column-gap: 4rem;
 }
 
-
-/* From Uiverse.io by matinMMA */ 
-button {
+header button {
     font-size: 18px;
     color: #e1e1e1;
     font-family: inherit;
@@ -33,18 +31,18 @@ button {
     text-decoration: none;
   }
   
-  button:focus,
-  button:hover {
+header button:focus,
+header button:hover {
     color: #fff;
   }
   
-  button:focus:after,
-  button:hover:after {
+header button:focus:after,
+header button:hover:after {
     width: 50%;
     left: 0%;
   }
   
-  button:after {
+header button:after {
     content: "";
     pointer-events: none;
     bottom: 25px;

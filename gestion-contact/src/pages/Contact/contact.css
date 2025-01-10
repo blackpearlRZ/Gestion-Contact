@@ -14,7 +14,7 @@
 }
 .list_contact_item{
     display: flex;
-    width: 20rem;
+    justify-content: space-between;
     align-items: center;
     padding: 0.3rem 01rem;
     gap: 2.5rem;
@@ -38,3 +38,42 @@
     filter: blur(10px);
     transform: scale(0.9,0.9);
 }
+/* From Uiverse.io by xetrov47 */ 
+.search {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid #aae8be;
+    color: #767676;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: -1.5rem;
+    height: 30px;
+    width: 20rem;
+  }
+  
+  .search__input::-webkit-input-placeholder {
+    font-weight: 400;
+    color: #767676;
+    font-size: 14px;
+  }
+  
+  .search__button {
+    border: none;
+    background-color: #fff;
+    margin-top: 0.1em;
+  }
+  
+  .search__button:hover {
+    cursor: pointer;
+  }
+  
+  .search input:focus {
+    outline: none;
+  }
+  
