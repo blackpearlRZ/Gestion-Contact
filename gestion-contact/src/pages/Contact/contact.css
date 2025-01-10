@@ -1,0 +1,40 @@
+.contact{
+    margin-top: 100px;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.list_contact{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.list_contact_item{
+    display: flex;
+    width: 20rem;
+    align-items: center;
+    padding: 0.3rem 01rem;
+    gap: 2.5rem;
+    color: black;
+    background-color: #5e8869;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 400ms;
+}
+.list_contact :hover{
+    background-color: #F1E9D2;
+}
+.user_photo{
+    width: 3.3rem;
+    border-radius: 50%;
+}
+.list_contact_item:hover {
+    transform: scale(1.1,1.1);
+}
+.list_contact:hover > .list_contact_item:not(:hover){
+    filter: blur(10px);
+    transform: scale(0.9,0.9);
+}
