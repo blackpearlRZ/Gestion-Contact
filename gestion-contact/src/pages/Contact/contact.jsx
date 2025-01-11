@@ -25,7 +25,7 @@ export default function Contact (){
             <div className='list_contact'>
                 {initialState.contacts.map(contact =>(
                     <div className='list_contact_item'>
-                    <img src={userPhoto} alt="photo_contact" className='user_photo' />
+                    <img src={contact.photo =="" ? userPhoto : contact.photo} alt="photo_contact" className='user_photo' />
                     <h4>{contact.fname} {contact.lname}</h4>
                     <button>More Info</button>
                 </div>
