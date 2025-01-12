@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
 
 export default function SearchBar({ setSearch }) {
-  const [query, setQuery] = useState('')
-
-  const handleSearchChange = (e) => {
-    setQuery(e.target.value);
-    setSearch(e.target.value)
-  }
 
   return (
     <div className="search">
       <input
         placeholder="Search"
         className="search__input"
-        type="text"
-        value={query}
-        onChange={handleSearchChange}
       />
       <button className="search__button">
         <svg

@@ -1,7 +1,4 @@
 import "./formulaire.css";
-import { FaPhoneAlt, FaUser } from 'react-icons/fa';
-import { MdOutlineMail } from "react-icons/md";
-import { IoMdPhotos } from "react-icons/io";
 export default function Formulaire() {
 
   return (
@@ -9,26 +6,25 @@ export default function Formulaire() {
       <div className="formulaire">
         <form>
           <h1>Fill Up This Form</h1>
-          <div>
-          <IoMdPhotos className="input-icon1" />
-            <input type="file" accept="image/*" />
-
-          </div>
-          <FaUser className="input-icon" />
+            <label>Prénom:</label>
             <input type="text" placeholder="Prénom"  />
           <div>
           </div>
           <div>
-          <FaUser className="input-icon2" />
+            <label>Nom de famille:</label>
             <input type="text" placeholder="Nom de famille"  />
           </div>
           <div>
-          <FaPhoneAlt className="input-icon3" />
+            <label>Téléphone:</label>
             <input type="text" placeholder="Téléphone"  />
           </div>
           <div>
-          <MdOutlineMail className="input-icon4"/>
+            <label>Email:</label>
             <input type="email" placeholder="Email"  />
+          </div>
+          <div>
+            <label>Photo:</label>
+            <input type="file" accept="image/*" />
           </div>
           <button type="submit">Enregistrer</button>
         </form>
