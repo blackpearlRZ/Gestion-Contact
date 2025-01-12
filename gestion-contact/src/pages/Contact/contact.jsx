@@ -29,14 +29,14 @@ export default function Contact (){
                     <img src={contact.photo =="" ? userPhoto : contact.photo} alt="photo_contact" className='user_photo' />
                     <h4>{contact.fname} {contact.lname}</h4>
                     <button onClick={() => handleInfo(contact)}>More Info</button>
-                </div>
+                </div> 
                 ))}
             </div>
             : <div className='contact_info'>
             <h1>More Info</h1>
             <div>
             {contact && (
-                    <ul >
+                    <ul>
                         <li>First Name: {contact.fname}</li>
                         <li>Last Name: {contact.lname}</li>
                         <li>Phone: {contact.phone}</li>
