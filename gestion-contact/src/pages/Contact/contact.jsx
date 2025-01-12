@@ -2,7 +2,6 @@ import './contact.css'
 import { initialState } from '../redux/contacts'
 import userPhoto from '../../assets/user.jpg'
 import { useState } from 'react'
-import ConctactInfo from './conctactInfo'
 import SearchBar from './SearchBar'
 
 export default function Contact (){
@@ -36,7 +35,7 @@ export default function Contact (){
             <h1>More Info</h1>
             <div>
             {contact && (
-                    <ul>
+                    <ul >
                         <li>First Name: {contact.fname}</li>
                         <li>Last Name: {contact.lname}</li>
                         <li>Phone: {contact.phone}</li>
