@@ -49,6 +49,7 @@
 .formulaire input[type="file"] {
     padding: 10px;
     height: auto;
+
 }
 
 .formulaire input:focus {
@@ -79,4 +80,40 @@
 .formulaire button:active {
     transform: translateY(2px) translateX(1px);
     box-shadow: 0 0 0 0 black;
+}
+.input-icon{
+    position: relative;
+    top: 3.5rem;
+    left: 23rem;
+    margin: 5px;
+    color: black;
+
+}
+.input-icon1{
+    position: relative;
+    top: 3.2rem;
+    left: 23rem;
+    margin: 5px;
+    color: black;
+}
+.input-icon2{
+    position: relative;
+    top: 2.9rem;
+    left: 23rem;
+    margin: 5px;
+    color: black;
+}
+.input-icon3{
+    position: relative;
+    top: 3rem;
+    left: 23rem;
+    margin: 5px;
+    color: black;
+}
+.input-icon4{
+    position: relative;
+    top: 3rem;
+    left: 23rem;
+    margin: 5px;
+    color: black;
 }
