@@ -1,5 +1,5 @@
 import NavBar from "./pages/NavBar/NavBar"
-import Routers from "./routes/routes"
+import Routers from "./Routes/Routes"
 export default function Layout(){
     return(
         <>

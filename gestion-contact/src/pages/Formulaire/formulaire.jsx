@@ -6,6 +6,10 @@ export default function Formulaire() {
       <div className="formulaire">
         <form>
           <h1>Fill Up This Form</h1>
+          <div>
+            <label>Photo:</label>
+            <input type="file" accept="image/*" />
+          </div>
             <label>Prénom:</label>
             <input type="text" placeholder="Prénom"  />
           <div>
@@ -22,11 +26,7 @@ export default function Formulaire() {
             <label>Email:</label>
             <input type="email" placeholder="Email"  />
           </div>
-          <div>
-            <label>Photo:</label>
-            <input type="file" accept="image/*" />
-          </div>
-          <button type="submit">Enregistrer</button>
+          <button type="submit">Ajouter</button>
         </form>
       </div>
     </>
