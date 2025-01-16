@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import "./formulaire.css";
+import userPhoto from '../../assets/User.png'
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const formulaire = () => {
-  const [profileImage, setProfileImage] = useState("./téléchargement (1).png");
-
+  const [profileImage, setProfileImage] = useState(userPhoto);
+  const stateId = useSelector(state => state.id)
+  const stateInfo = useSelector(state => state.contacts).find(contact => contact.phone == stateId)
+  const [fname, setFname] = useState(stateId ? stateInfo.fname : "")
+  const [lname, setLname] = useState(stateId ? stateInfo.lname : "")
+  const [email, setEmail] = useState(stateId ? stateInfo.email : "")
+  const [phone, setPhone] = useState(stateId ? stateInfo.phone : "")
+  const dispatch = useDispatch()
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -18,15 +27,22 @@ const formulaire = () => {
   const triggerFileUpload = () => {
     document.getElementById("file-upload").click();
   };
+
+  function handleSubmit(e){
+    e.preventDefault()
+    if(stateId){
+      //code
+    }
+  }
   return (
     <>
       <form className="form">
-        <p className="title">Nouveau contact </p>
+        <p className="title">{!stateId ? 'Nouveau Contact' : 'Modifier Contact'}</p>
 
         <div className="row">
           <div className="small-12 medium-2 large-2 columns">
             <div className="circle">
-              <img className="profile-pic" src={profileImage} alt="Profile" />
+              <img className="profile-pic" src={userPhoto} alt="Profile" />
             </div>
             <div className="p-image">
               <i
@@ -46,30 +62,30 @@ const formulaire = () => {
         </div>
         <div className="flex">
           <label>
-            <input className="input" type="text" placeholder="" required="" />
+            <input className="input" type="text" placeholder="" required="" value={fname} onChange={(e) => setFname(e.target.value)}/>
             <span>Nom</span>
           </label>
 
           <label>
-            <input className="input" type="text" placeholder="" required="" />
+            <input className="input" type="text" placeholder="" required="" value={lname} onChange={(e) => setLname(e.target.value)}/>
             <span>Prenom</span>
           </label>
         </div>
 
         <label>
-          <input className="input" type="email" placeholder="" required="" />
+          <input className="input" type="email" placeholder="" required="" value={email} onChange={(e) => setEmail(e.target.value)}/>
           <span>ajouter une adresse e-mail</span>
         </label>
 
         <label>
-          <input className="input" type="text" placeholder="" required="" />
+          <input className="input" type="text" placeholder="" required="" value={phone} onChange={(e) => setPhone(e.target.value)}/>
           <span>ajouter un numero </span>
         </label>
         <label>
           <input className="input" type="text" placeholder="" required="" />
           <span>ajouter une adresse</span>
         </label>
-        <button class="submit">Enregistrer</button>
+        <button class="submit" onClick={(e) =>handleSubmit(e)}>{!stateId ? 'Ajouter' : 'Modifier'}</button>
       </form>
     </>
   );

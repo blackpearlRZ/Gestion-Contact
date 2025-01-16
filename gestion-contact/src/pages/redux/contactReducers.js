@@ -1,6 +1,6 @@
 import { initialState } from "./contacts";
 
-export function contactReducers(state = initialState, action){
+export function ContactReducers(state = initialState, action){
     switch(action.type){
         case 'ADD_CONTACT':
             return {
@@ -30,6 +30,11 @@ export function contactReducers(state = initialState, action){
                         return contact
                     }
                 })
+            }
+        case 'SET_ID':
+            return {
+                ...state,
+                id : action.payload
             }
         default :
             return state

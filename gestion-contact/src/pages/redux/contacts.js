@@ -28,5 +28,6 @@ export const initialState = {
             email: "bobbrown@example.com",
             photo: "",
           }
-    ]
+    ],
+    id: null
 }
