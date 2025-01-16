@@ -5,8 +5,12 @@ return(
     <>
     <header>
         <ul className="Nav_List">
-            <Link to="/Formulaire"><button><a id="bot" href="#"> Formulaire </a></button></Link>
-            <Link to="/Contact"><button><a id="bot" href="#"> Contact </a></button></Link>
+            <Link to="/Formulaire">
+                <button><a id="bot" href="#"> Formulaire </a></button>
+            </Link>
+            <Link to="/Contact">
+                <button><a id="bot" href="#"> Contact </a></button>
+            </Link>
         </ul>
     </header>
     </>
