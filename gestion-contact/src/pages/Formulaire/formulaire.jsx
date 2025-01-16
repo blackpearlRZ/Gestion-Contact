@@ -34,6 +34,13 @@ const formulaire = () => {
       //code
     }
   }
+  function handleback(id){
+    dispatch({
+        type : 'SET_ID',
+        payload : null
+    })
+    Navigate("/Contact")
+}
   return (
     <>
       <form className="form">
@@ -86,6 +93,9 @@ const formulaire = () => {
           <span>ajouter une adresse</span>
         </label>
         <button class="submit" onClick={(e) =>handleSubmit(e)}>{!stateId ? 'Ajouter' : 'Modifier'}</button>
+        {!stateId ? "" : <>
+          <button className='back_btn' onClick={() => handleback()}>Back to Contact</button>
+        </>}
       </form>
     </>
   );

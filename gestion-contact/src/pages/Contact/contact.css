@@ -82,14 +82,19 @@
 
   /* From Uiverse.io by sekaiking */ 
 .back_btn , .list_contact_item button {
+    display: flex;
+    justify-content: center;
+    outline: none;
+    padding: 10px;
+    color: #000000;
+    font-size: 16px;
+    transform: 0.3s ease;
     background-color: #F1E9D2;
-    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
     border-radius: 10em;
     font-size: 17px;
     font-weight: 600;
-    padding: 0.2em 0.3em;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
     border: 1px solid black;
     box-shadow: 0 0 0 0 black;
   }
