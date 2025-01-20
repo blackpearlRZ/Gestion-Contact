@@ -3,7 +3,7 @@ import "./formulaire.css";
 import userPhoto from '../../assets/User.png'
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 const formulaire = () => {
   const [profileImage, setProfileImage] = useState(userPhoto);
   const stateId = useSelector(state => state.id)
@@ -13,6 +13,7 @@ const formulaire = () => {
   const [email, setEmail] = useState(stateId ? stateInfo.email : "")
   const [phone, setPhone] = useState(stateId ? stateInfo.phone : "")
   const dispatch = useDispatch()
+  const Navigate = useNavigate()
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -39,7 +40,7 @@ const formulaire = () => {
           lname,
           phone ,
           email,
-          photo : 'User.png'
+          photo : profileImage
         }
       })
     }else {
@@ -51,10 +52,11 @@ const formulaire = () => {
           lname,
           phone ,
           email,
-         photo : 'User.png',
+         photo : profileImage,
         }
       })
     }
+    Navigate('/Contact')
   }
   return (
     <>
@@ -64,7 +66,7 @@ const formulaire = () => {
         <div className="row">
           <div className="small-12 medium-2 large-2 columns">
             <div className="circle">
-              <img className="profile-pic" src={userPhoto} alt="Profile" />
+              <img className="profile-pic" src={profileImage} alt="Profile" />
             </div>
             <div className="p-image">
               <i
