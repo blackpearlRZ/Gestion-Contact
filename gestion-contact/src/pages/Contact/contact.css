@@ -32,6 +32,7 @@
 }
 .user_photo{
     width: 3.3rem;
+    height: 3.3rem;
     border-radius: 50%;
 }
 .list_contact_item:hover {
