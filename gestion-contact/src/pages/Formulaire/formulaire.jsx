@@ -24,11 +24,12 @@ const formulaire = () => {
       reader.readAsDataURL(file);
     }
   };
-
+  
   const triggerFileUpload = () => {
     document.getElementById("file-upload").click();
   };
-
+  
+  const statePhone = useSelector(state => state.contacts).find(contact => contact.phone == phone)
   function handleSubmit(e){
     e.preventDefault()
     if(stateId){
@@ -43,18 +44,28 @@ const formulaire = () => {
           photo : profileImage
         }
       })
-    }else {
-      dispatch({
-        type : 'ADD_CONTACT',
-        payload : {
-          id : Date.now(),
-          fname ,
-          lname,
-          phone ,
-          email,
-         photo : profileImage,
-        }
-      })
+    }else if(fname,lname,phone){
+      if(statePhone){
+        alert('Phone number already exist')
+        return(Navigate('/Formulaire'))
+      }
+      else{
+        dispatch({
+          type : 'ADD_CONTACT',
+          payload : {
+            id : Date.now(),
+            fname ,
+            lname,
+            phone ,
+            email,
+           photo : profileImage,
+          }
+        })
+      }
+    }
+    else{
+      alert('Fill Up The Form')
+      return(Navigate('/Formulaire'))
     }
     Navigate('/Contact')
   }
@@ -86,30 +97,30 @@ const formulaire = () => {
         </div>
         <div className="flex">
           <label>
-            <input className="input" type="text" placeholder="" required="" value={fname} onChange={(e) => setFname(e.target.value)}/>
+            <input className="input" type="text"  value={fname} onChange={(e) => setFname(e.target.value)} required/>
             <span>Nom</span>
           </label>
 
           <label>
-            <input className="input" type="text" placeholder="" required="" value={lname} onChange={(e) => setLname(e.target.value)}/>
+            <input className="input" type="text"  value={lname} onChange={(e) => setLname(e.target.value)} required/>
             <span>Prenom</span>
           </label>
         </div>
 
         <label>
-          <input className="input" type="email" placeholder="" required="" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <input className="input" type="email"  value={email} onChange={(e) => setEmail(e.target.value)} required/>
           <span>ajouter une adresse e-mail</span>
         </label>
 
         <label>
-          <input className="input" type="text" placeholder="" required="" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+          <input className="input" type="text"  value={phone} onChange={(e) => setPhone(e.target.value)} required/>
           <span>ajouter un numero </span>
         </label>
         <label>
-          <input className="input" type="text" placeholder="" required="" />
+          <input className="input" type="text" required />
           <span>ajouter une adresse</span>
         </label>
-        <button class="submit" onClick={(e) =>handleSubmit(e)}>{!stateId ? 'Ajouter' : 'Modifier'}</button>
+        <button type="submit" className="submit" onClick={(e) =>handleSubmit(e)}>{!stateId ? 'Ajouter' : 'Modifier'}</button>
       </form>
     </>
   );
