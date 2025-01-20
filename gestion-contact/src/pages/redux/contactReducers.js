@@ -10,19 +10,19 @@ export function ContactReducers(state = initialState, action){
         case 'DELETE_CONTACT':
             return {
                 ...state,
-                contacts : state.contacts.filter(contact => contact.phone !== action.payload.phone)
+                contacts : state.contacts.filter(contact => contact.id !== action.payload.id)
             }
         case 'UPDATE_CONTACT':
             return{
                 ...state,
                 contacts : state.contacts.map(contact => {
-                    if(contact.phone == action.payload.phone){
+                    if(contact.id == action.payload.id){
                         return{
                             ...contact,
                             fname : action.payload.fname,
                             lname : action.payload.lname,
-                            phone : action.payload.phone,
                             email : action.payload.email,
+                            phone : action.payload.phone,
                             photo : action.payload.photo
                         }
                     }

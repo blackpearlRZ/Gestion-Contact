@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 const formulaire = () => {
   const [profileImage, setProfileImage] = useState(userPhoto);
   const stateId = useSelector(state => state.id)
-  const stateInfo = useSelector(state => state.contacts).find(contact => contact.phone == stateId)
+  const stateInfo = useSelector(state => state.contacts).find(contact => contact.id == stateId)
   const [fname, setFname] = useState(stateId ? stateInfo.fname : "")
   const [lname, setLname] = useState(stateId ? stateInfo.lname : "")
   const [email, setEmail] = useState(stateId ? stateInfo.email : "")
@@ -31,8 +31,31 @@ const formulaire = () => {
   function handleSubmit(e){
     e.preventDefault()
     if(stateId){
-      //code
+      dispatch({
+        type : 'UPDATE_CONTACT',
+        payload : {
+          id : stateId,
+          fname ,
+          lname,
+          phone ,
+          email,
+          photo : 'User.png'
+        }
+      })
+    }else {
+      dispatch({
+        type : 'ADD_CONTACT',
+        payload : {
+          id : Date.now(),
+          fname ,
+          lname,
+          phone ,
+          email,
+         photo : 'User.png',
+        }
+      })
     }
+    Navigate
   }
   function handleback(id){
     dispatch({

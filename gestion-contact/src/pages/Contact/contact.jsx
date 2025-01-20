@@ -1,5 +1,4 @@
 import './contact.css'
-import { initialState } from '../redux/contacts'
 import userPhoto from '../../assets/User.png'
 import { useState } from 'react'
 import { useNavigate} from 'react-router-dom'
@@ -9,6 +8,7 @@ export default function Contact (){
     const Navigate = useNavigate()
     const [clicked , setClicked] = useState('false')
     const [contact, setContact] = useState(null)
+    const state = useSelector(state => state.contacts)
     const dispatch = useDispatch()
     function handleInfo(contact){
         setClicked('true')
@@ -49,7 +49,7 @@ export default function Contact (){
             </div>
             {clicked == 'false' ? 
             <div className='list_contact'>
-                {initialState.contacts.map((contact,index) =>(
+                {state.map((contact,index) =>(
                     <div className='list_contact_item' key={index}>
                         <img src={contact.photo =="" ? userPhoto : contact.photo} alt="photo_contact" className='user_photo' />
                         <h4>{contact.fname} {contact.lname}</h4>
@@ -67,7 +67,7 @@ export default function Contact (){
                         <li>Phone: {contact.phone}</li>
                     </ul>
             )}
-            <button onClick={() =>backForm(contact.phone)}>Modifier</button>
+            <button onClick={() =>backForm(contact.id)}>Modifier</button>
             <button>Supprimer</button>
             </div>
             <button className='back_btn' onClick={() => handleback()}>Back to Contact</button>
